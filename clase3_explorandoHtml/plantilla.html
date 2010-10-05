@@ -1,0 +1,59 @@
+<!-- este es un comentario -->
+<!DOCTYPE html> <!-- este es el tipo de documento, éste en específico es el de html 5 -->
+<html lang="es"> <!--aquí comienza el documento, declarar el lenguaje es opcional-->
+    <!-- Todo documento html tiene una cabeza, donde se agregan metadatos, estilos y scripts-->
+    <head>
+        <meta charset="utf-8" /> <!-- esto define el character set del documento: le dice al cliente que está en unicode-->
+        <!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> -->
+        <title>Página de muestra</title> <!--El título que tendrá la ventana del browser (si se abre en uno)-->
+    </head>
+    <!--Aquí se define todo lo que se podrá ver en la ventana -->
+    <body> 
+        <!--html5 introduce tags semánticas: aquí iría el encabezado del documento visible, antes se usaría un div-->
+        <header>
+            <a id="logo" href="#">Esta es una página de ejemplo</a>
+            <nav>
+                <a href="#html5">Html 5</a>
+                <a href="#css3">Css 3</a>
+                <a href="#js">Javascript</a>
+            </nav>
+        </header>
+        <!--en html 5, se puede dividir el documento en secciones, antes se hacía con divs-->
+        <section class="container">
+            <article>
+                <h1>Pueden usar esta página de referencia</h1>
+                 <p>Esta es una página de muestra en html 5</p>
+                
+                <h2>¿Qué se puede hacer en el lado del cliente?</h2>
+                <h3 id?="html5">Estructurar documentos</h3>
+                    <p>Con html 5</p>
+                <h3 id?="css3">Dar estilo a documentos</h3>
+                    <p>Con css 3</p>
+
+                <h3 id?="js">Tener interacción dinámica</h3>
+                    <p>Con javascript</p>
+            </article>
+        </section>
+        <!--el tag aside define contenido secundario-->
+        <aside>
+            <h3>Algunas definiciones</h3>
+            <dl>
+                <dt>Html (5)</dt>
+                <dd>Es un lenguaje de <em>marcado</em></dd>
+                
+                <dt>Css 3</dt>
+                <dd>Es un lenguaje de <em>estilo semántico</em></dd>
+                
+                <dt>Javascript</dt>
+                <dd>
+                     Es un <strong>lenguaje de programación</strong> que puede ser
+                     <em>interpretado</em> por los navegadores web
+                </dd>
+            </dl>
+        </aside>
+        <!--Esta etiqueta se refiere a lo que se pondría al pie de una página de un libro o algo así-->
+        <footer>
+            Esta es una página de muestra para progra4
+        </footer>
+    </body>
+</html>
