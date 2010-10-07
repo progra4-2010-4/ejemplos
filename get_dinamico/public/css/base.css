@@ -14,6 +14,7 @@ body{
     margin: 0 auto; /*Este truco se usa para centrar un elemento con anchura fija en su contenedor padre*/
     /*el margen es la distancia entre el borde del contenedor y otros contenedores*/
     padding-top: 50px; /*La altura entre este elemento y el borde del contenedor padre*/
+    background-color: #F6F6EF;
 }
 /*Podemos aplicar clases a varios elementos en una página. Para seleccionar por clase, usamos un punto: .*/
 a.redhanded{
@@ -22,8 +23,17 @@ a.redhanded{
     font-family: "Courier New", Courier, monospace;
 }
 
+a.redhanded:hover {
+    color: #900;
+    background-color: white;
+}
+
 a.hackernews{
     color: #F47920;
+}
+/*Los pseudo-selectores como hover sirven para responder a eventos o estados:
+ http://www.w3schools.com/CSS/css_pseudo_classes.asp*/
+a.hackernews:hover {
     text-shadow: #F47920 0px 0px 2px;
 }
 /*Pero los ids deben ser únicos. Para seleccionar por id, usamos el octothorpe: #*/
