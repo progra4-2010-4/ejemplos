@@ -1,0 +1,33 @@
+<!DOCTYPE html> 
+<html lang="es"> 
+    <head>
+        <meta charset="utf-8" /> 
+        <title>Extractor de links</title> 
+        <!--La relación con el link es que es una hoja de estilo, de tipo css, ubicada en /css/base.css-->
+        <!--Sinatra envía automáticamente archivos ubicados dentro de la carpeta public (no es necesario
+        poner las rutas explícitamente-->
+        <link rel="stylesheet" type="text/css" href="/css/base.css"/>
+    </head>
+    <body> 
+        <header>
+         <h1></h1>
+        <nav>
+            <!--Linkeo a solicitudes del mismo recurso, pero con distintos parámetros-->
+            <a id="ycombinator-link" href="/?site=hn">Hacker news</a>
+            <a id ="redhanded-link" href="/?site=rh">RedHanded</a>
+        </nav>
+        </header>
+        <section>
+            <h1>Links extraidos de <%= @site %></h1>
+            <ul id="links">
+                <%@links.each do |link|%>
+                    <li>
+                    <a href="<%= link[:href]%>" class="<%=(link[:title]||link[:text]).downcase.gsub(" ", '')%>">
+                            <%= link[:text] == "#" ? link[:title].gsub("Permanent link to ", '') : link[:text] %>
+                        </a>
+                   </li>
+               <%end%>
+            </ul>
+        </section>
+    </body>
+</html>

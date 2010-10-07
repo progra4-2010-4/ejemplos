@@ -1,0 +1,37 @@
+body{ 
+    /*Se declara la fuente, siempre es bueno declarar "fallbacks": si el browser no dispone de una, usará los fallbacks
+     en orden. SIEMPRE se deberá poner el tipo de font más general como el último fallback
+     cf: http://www.w3.org/TR/CSS2/fonts.html*/
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    /*Las unidades pueden ser (cf: http://www.w3schools.com/css/css_units.asp)
+      fijas: en pixeles, centrímetros, puntos, etc.
+      elásticas: en porcentajes (toma la dimensión del contenedor)
+      fluidas: en función del tamaño de la fuente: 1em = la altura de una letra*/
+    width: 700px;
+    /*Estas propiedades definen distancias entre las "cajas" de los contenedores
+     cf: http://www.w3.org/TR/CSS2/box.html
+     */
+    margin: 0 auto; /*Este truco se usa para centrar un elemento con anchura fija en su contenedor padre*/
+    /*el margen es la distancia entre el borde del contenedor y otros contenedores*/
+    padding-top: 50px; /*La altura entre este elemento y el borde del contenedor padre*/
+}
+/*Podemos aplicar clases a varios elementos en una página. Para seleccionar por clase, usamos un punto: .*/
+a.redhanded{
+    background-color: #900;
+    color: white;
+    font-family: "Courier New", Courier, monospace;
+}
+
+a.hackernews{
+    color: #F47920;
+    text-shadow: #F47920 0px 0px 2px;
+}
+/*Pero los ids deben ser únicos. Para seleccionar por id, usamos el octothorpe: #*/
+ul#links{
+    list-style-type: none;
+}
+
+li{
+    padding: 5px;
+}
+
