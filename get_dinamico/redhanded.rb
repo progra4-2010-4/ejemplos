@@ -5,7 +5,7 @@
 #Recibe una dirección de una página que bajar y una *función* a aplicar a cada link
 #
 #address:: la dirección a abrir
-#condition:: un bloque anónimo que se ejecutará para cada link
+#condition:: un bloque anónimo que se ejecutará como condición para cada link
 def extraer_links(address, condition)
     links = []
     #la función open recibe una URI y pasa a un bloque el recurso recibido
