@@ -1,6 +1,6 @@
 require 'sinatra'
 
-get('/'){ send_file "views/index.html" }
+get('/'){ erb :index }
 
 
 get '/calcu' do
