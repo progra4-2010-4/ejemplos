@@ -1,0 +1,19 @@
+body{
+    padding-top: 100px;
+    margin: 0 auto;
+    width: 500px;
+    font-family: Helvetica, sans-serif;
+    font-size: 20px;
+
+}
+
+html, body{
+    background: #EFE url(http://mislav.uniqpath.com/poignant-guide/images/dwemthy-spiral.gif) repeat-y 100% 0%;
+}
+
+#text-bubble{
+    display:block;
+    margin-left: 250px;
+    border-left: 5px dotted black;
+    border-bottom: 5px dotted black;
+}
