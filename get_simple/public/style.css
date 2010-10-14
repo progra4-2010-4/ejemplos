@@ -1,7 +1,7 @@
 body{
     padding-top: 100px;
     margin: 0 auto;
-    width: 500px;
+    width: 600px;
     font-family: Helvetica, sans-serif;
     font-size: 20px;
 
@@ -16,4 +16,18 @@ html, body{
     margin-left: 250px;
     border-left: 5px dotted black;
     border-bottom: 5px dotted black;
+}
+
+#calcu{
+    float: right;
+    padding-top: 70px;
+}
+
+#gato{
+    float: left;
+}
+
+
+label{
+    display: block;
 }
