@@ -4,3 +4,17 @@
     El resultado es <%=@res%>
 </span>
 <img src="blix-neg.gif" />
+<h2>Calcula otra cosa</h2>
+<form action="/calcu" method="get">
+    <label for="primero">Primer valor</label>
+    <input type="text" placeholder="introducí x" id="primero" name="x"/>
+    <label for="segundo">Segundo valor</label>
+    <input type="text" placeholder="introducí y" id="segundo" name="y"/>
+    <select name="op">
+        <option value="sum">Suma</option>
+        <option value="min">Resta</option>
+        <option value="mul">Multiplicación</option>
+        <option value="div">División</option>
+    </select>
+    <input type="submit" value="Calcular" />
+</form>
