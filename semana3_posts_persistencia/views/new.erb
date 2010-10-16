@@ -1,0 +1,38 @@
+<form action="/discos" method="post">
+    <p>
+    <label for="nombre">Título</label>
+    <input type="text" name="title" id="nombre"/>
+    </p>
+    
+    <p>
+    <label for="artista">Artista</label>
+    <input type="text" name="artist" id="artista" />
+    </p>
+    
+    <p>
+    <label for="publicado">Fecha de publicación</label>
+    <input type="date" name="released" id="publicado" />
+    </p>
+    
+    <p>
+    <label for="genero">Género</label>
+    <select id="genero" name="genre">
+        <%MusicAlbum.genres.each do |genre| %>
+            <option value="<%= genre %>"><%= genre%></option>
+        <%end%>
+    </select>
+    </p>
+
+    <p>
+    <label for="puntaje">Puntaje</label>
+    <input type="range" min="0" max="<%= MusicAlbum.max_rating %>" step="1" name="rating" id="puntaje" />
+    </p>
+
+    <p>
+    <label for="descripcion">Descripción</label>
+    <textarea id="descripcion" name="description" cols="40" rows="3" wrap="hard">
+    </textarea>
+    </p>
+
+    <input type="submit" value="Guardar"/>
+</form>
