@@ -43,6 +43,14 @@ class MusicAlbum
        #aquí se inicializan todas las variables de instancia
        @artist, @description, @genre, @rating, @released, @title = artist, description, genre, rating, released, title 
     end
+
+    def validation_errors
+        errors = []
+        errors << "El artista no puede estar en blanco " if @artist.strip.empty?
+        errors << "El título no puede estar en blanco " if @title.strip.empty?
+        Date.new *@released.split('-').collect{|e| e.to_i} rescue errors << "Fecha inválida"
+        return errors
+    end
 end
 
 
@@ -55,7 +63,10 @@ post '/discos' do
     #@disco = MusicAlbum.new(params[:artist], params[:description], params[:genre]... )
     #pero no tenía ganas de volver a escribir eso...
     @album = MusicAlbum.new *params.sort.collect{|e| e[1]}
-    erb :show
+    return erb :show if @album.validation_errors.empty?
+    #vuelve a mostrar el form si hay errores
+    @errors = @album.validation_errors
+    erb :new
 end
 
 get '/discos/new' do 

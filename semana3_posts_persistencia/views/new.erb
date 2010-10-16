@@ -1,3 +1,12 @@
+<%if @errors%>
+    <span class="errormessage">Ocurrieron los siguientes errores</h2>
+    <ul class="errorlist">
+        <%@errors.each do |error|%>
+            <li><%=error%></li>
+        <%end%>
+    </ul>
+<%end%>
+
 <form action="/discos" method="post">
     <p>
     <label for="nombre">Título</label>
