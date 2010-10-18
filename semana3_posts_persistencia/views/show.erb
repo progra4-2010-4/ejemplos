@@ -1,15 +1,15 @@
 <h2><%=@album.title%> por <%=@album.artist%></h2>
 <span class="meta">
     Publicado en <%= @album.released%>
-    y clasificado bajo <%= @album.genre %>
+    y clasificado bajo <strong><%= @album.genre %></strong>
 </span>
-
+<h3>Rating (sobre un máximo de <%=MusicAlbum.max_rating%>)</h3>
 <%@album.rating.to_i.times do%>
-    <img src ="/images/star.gif">
+    <img src ="/images/star.gif" />
 <%end%>
 
-<details open>
-    <summary>Descripción</summary>
+<h3>Descripción</h3>
+<p>
     <%=@album.description%>
-</details>
+</p>
 
