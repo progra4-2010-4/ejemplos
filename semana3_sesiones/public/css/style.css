@@ -1,9 +1,15 @@
 body{
     margin: 0 auto;
+    width: 400px;
     margin-top: 100px;
     font-size: 16px;
     font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
     border-radius: 5px;
+}
+
+html, body{
+    background-color: #ece8da;
+    text-shadow: white 0px 1px 0px;
 }
 
 form{

@@ -1,6 +1,6 @@
 <header>
 <h1>¡Probemos sesiones!</h1>
-<p id="host">Métanse a <%=my_ip%> para probar</p>
+<p id="host">Métanse a http://<%=my_ip%>:4567 para probar</p>
 <%unless @user.authenticated%> 
     <a href="/login">Autenticate</a>
 <%else%>
