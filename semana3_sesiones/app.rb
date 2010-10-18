@@ -14,7 +14,7 @@ end
 
 class User 
     attr_accessor :visits
-    
+    attr_writer :username
     #definiremos un método que recibe un hash y devuelve ya sea la variable de instancia o el valor por
     #defecto
     def self.default_attr_reader(hsh)
