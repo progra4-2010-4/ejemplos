@@ -34,8 +34,8 @@ class User
     def initialize(username=nil) 
         @username = username if username
         @authenticated = true if username
-        @visits = 1 
-        @@users << self
+        @visits = 0
+        @@users << self if username
     end
 
     #Saca al presente usuario de la clase
