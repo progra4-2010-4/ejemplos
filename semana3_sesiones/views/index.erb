@@ -1,0 +1,20 @@
+<header>
+<h1>¡Probemos sesiones!</h1>
+<p id="host">Métanse a <%=my_ip%> para probar</p>
+<%unless @user.authenticated%> 
+    <a href="/login">Autenticate</a>
+<%else%>
+    <small>Hola <%=@user.username%>, llevás <%=@user.visits%> visitas</small>
+    <a href="/logout">No me recordés más</a>
+<%end%>
+</header>
+<%unless @users.empty?%>
+    <h2>Usuarios autenticados</h2>
+    <ul>
+        <%@users.each do |u|%>
+            <li><%=u.username%></li>
+        <%end%>
+    </ul>
+<%else%>
+    <h2>No hay nadie autenticado</h2>
+<%end%>
