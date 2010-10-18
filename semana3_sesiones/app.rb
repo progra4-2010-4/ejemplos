@@ -15,18 +15,7 @@ end
 class User 
     attr_accessor :visits
     attr_writer :username
-    #definiremos un método que recibe un hash y devuelve ya sea la variable de instancia o el valor por
-    #defecto
-    def self.default_attr_reader(hsh)
-        hsh.each do |var, default|
-            instance_eval do 
-                define_method(var) do 
-                    instance_variable_get("@#{var}") || default
-                end        
-            end
-        end
-    end
-
+    #este método es nuestro: ver utils.rb
     default_attr_reader :username => "Anonymous"
 
     @@users = []
