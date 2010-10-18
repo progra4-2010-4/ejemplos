@@ -11,5 +11,14 @@ def local_ip
 ensure
   Socket.do_not_reverse_lookup = orig
 end
-
-
+=begin
+class Class 
+    def default_attr_reader(hsh) 
+        hsh.each do |var, default|
+            define_method(m) do 
+                instance_variable_get("@#{m}") || default
+            end
+        end
+    end
+end
+=end
