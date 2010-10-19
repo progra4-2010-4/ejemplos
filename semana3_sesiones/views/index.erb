@@ -1,12 +1,14 @@
 <header>
 <h1>¡Probemos sesiones!</h1>
-<p id="host">Métanse a http://<%=my_ip%>:4567 para probar</p>
+<div class="help-text">
 <%unless @user.authenticated%> 
     <a href="/login">Autenticate</a>
 <%else%>
     <small>Hola <%=@user.username%>, llevás <%=@user.visits%> visitas</small>
     <a href="/logout">No me recordés más</a>
 <%end%>
+</div>
+<p id="host">Métanse a http://<%=my_ip%>:4567 para probar</p>
 </header>
 <%unless @users.empty?%>
     <h2>Usuarios autenticados</h2>
