@@ -6,10 +6,12 @@
 <%else%>
     <small>Hola <%=@user.username%>, llevás <%=@user.visits%> visitas</small>
     <a href="/logout">No me recordés más</a>
+    <a class="hilite" href="/messages">Nuevo mensaje</a>
 <%end%>
 </div>
 <p id="host">Métanse a http://<%=my_ip%>:4567 para probar</p>
 </header>
+<div id="users">
 <%unless @users.empty?%>
     <h2>Usuarios autenticados</h2>
     <ul>
@@ -20,3 +22,18 @@
 <%else%>
     <h2>No hay nadie autenticado</h2>
 <%end%>
+</div>
+
+<div id="msgs">
+<%unless @messages.empty?%>
+    <h2>Mensajes</h2>
+    <ul>
+        <%@messages.each do |m|%>
+            <li><span class="help-text"><%=m.author.username%> dijo el <%=m.created.strftime("%A %B %d, %Y at %I:%M%p")%>
+            </span><q><%=m.body%></q></li>
+        <%end%>
+    </ul>
+<%else%>
+    <h2>No hay mensajes</h2>
+<%end%>
+</div>

@@ -1,0 +1,8 @@
+<%if @message && !@message.validates? %>
+    <p class="error">Mensaje inválido</p>
+<%end%>
+<form action="/messages/new" method="post">
+    <label for "msg">Tu mensaje para todos </label>
+    <textarea name="body" id="msg" cols=40 rows=2></textarea>
+    <p><input type="submit" value="Compartir" /></p>
+</form>
