@@ -48,9 +48,29 @@ class User
     end
 end
 
+class Message 
+    attr_accessor :body, :created, :author
+
+    @@messages = []
+
+    def self.messages; @@messages; end
+
+    def initialize(author, body=nil) 
+        @author = author
+        @body = body
+        @created = DateTime.now
+    end
+
+    def validates?
+       @@messages << self unless @body.nil?
+       ! @body.nil?
+    end
+end
+
 get '/' do 
     @user = session[:user] || User.new  
     @users = User.users
+    @messages = Message.messages
     session[:user].new_visit if session[:user]
     erb :index 
 end
@@ -67,4 +87,14 @@ end
 get '/logout' do 
     session.clear
     redirect '/'
+end
+
+get '/messages' do 
+    erb :new_message
+end
+
+post '/messages/new' do 
+    @message = Message.new session[:user], params[:body]
+    redirect '/' if @message.validates?
+    erb :new_message
 end
