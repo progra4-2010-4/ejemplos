@@ -1,0 +1,37 @@
+body{
+    width: 300px;
+    font-family: Courier, monospace;
+    margin: 0 auto;
+    margin-top: 100px;
+   
+}
+
+html{
+    background: transparent url(/bg.gif) repeat fixed 0px 0px;
+}
+
+#global{
+    color: red;
+    float: left;
+}
+
+#local{
+    color: green;
+    float: right;
+}
+
+.counter{
+    background-color: rgba(82,96,117,0.5);
+    -webkit-background-clip: text;
+    color: transparent;
+    text-shadow: rgba(255,255,255,0.5) 0 5px 6px;
+    font-size: 5em;
+}
+
+h1{
+    background-color: rgba(0, 0, 0, 0.691406);
+    -webkit-background-clip: text;
+    color: transparent;
+    text-shadow: rgba(255,255,255,0.5) 0 5px 6px;
+    font-size: 1.5em;
+}
