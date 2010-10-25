@@ -75,7 +75,7 @@ __END__
        <ul>
         <% @tasks.each do |t| %>
                 
-                <%unless session[:done].include?(t.id)%>
+                <%unless session[:done] && session[:done].include?(t.id)%>
                     <li><%= t.contenido  %>
                     <form method="post" action="/tasks/done/<%=t.id%>">
                         <input type="submit" value="terminar">
