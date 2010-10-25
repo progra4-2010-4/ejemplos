@@ -1,3 +1,6 @@
-molestia
-para
-todos
+1,hoy si2,tarea2,esto2,salto
+2,de
+3,linea
+4,salen
+5,terminar
+6,no está
