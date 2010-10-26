@@ -1,40 +1,28 @@
 require 'sinatra'
-
+require 'dm-core'
+require 'dm-migrations'
 enable :sessions
 
 class Task 
-    TaskFile = "tasks.txt"
-    attr_accessor :id, :contenido
-    def initialize(contenido, id=nil) 
-        @contenido = contenido
-        unless id 
-            if File.exists?(TaskFile)
-                @id = File.open(TaskFile, 'r').count + 1
-            else
-                @id = 1
-            end
-        else
-            @id = id
-        end
-    end 
+#MIXINS
+    include DataMapper::Resource
+    property :id, Serial
+    property :contenido, String
 
-    def self.all
-        return [] unless File.exists?(TaskFile)
-        ary = []
-        File.open(TaskFile, 'r').readlines.each do |linea| 
-            id = linea.split(",").first
-            contenido = linea.split(",")[1..-1].join ","
-            ary << Task.new(contenido, id)
-        end
-        ary
-    end
+    belongs_to :user
+end
 
-    def self.create(content) 
-        task = Task.new content
-        File.open(TaskFile, 'a') do |file| 
-            file.write "#{task.id},#{task.contenido}\n"
-        end
-    end
+class User 
+    include DataMapper::Resource
+    property :id, Serial
+    property :name, String
+
+    has n, :tasks
+end
+
+configure do 
+    DataMapper.setup(:default, "sqlite:///#{Dir.pwd}/tasks.sqlite3")
+    DataMapper.auto_upgrade!
 end
 
 get '/' do 
@@ -43,13 +31,22 @@ get '/' do
 end
 
 post '/tasks/new' do 
-    Task.create params["task"]
+    Task.create :contenido=>params["task"], :user => User.get(session[:user_id])
+    #a= Task.new
+    #a.contenido = params["task"]
+    #a.save
     redirect '/'
 end
 
 post '/tasks/done/:id' do |id| 
     session[:done] ||= [] # session[:done]= session[:done] || []
-    session[:done] << id
+    session[:done] << id.to_i
+    redirect '/'
+end
+
+post '/users/new' do 
+    u = User.first_or_create :name => params["username"]
+    session[:user_id] = u.id
     redirect '/'
 end
 
@@ -68,10 +65,15 @@ __END__
     </head>
     <body>
        <h2>Vil clon del vil clon de thingler</h2>
-       <%=session[:done]%>
-       <form method="post"  action="/tasks/new">
-        <input type="text" name="task" placeholder="tu tarea aquí"/>
-       </form>
+       <%if session[:user_id] %>
+           <form method="post"  action="/tasks/new">
+            <input type="text" name="task" placeholder="tu tarea aquí"/>
+           </form>
+       <%else%>
+           <form method="post" action="/users/new">
+               <input type="text" name="username" placeholder="¿quién sos?">
+           </form>
+       <%end%>
        <ul>
         <% @tasks.each do |t| %>
                 
@@ -83,6 +85,7 @@ __END__
                 <%else%>
                     <li class="hecha"><%= t.contenido  %>
                 <%end%>
+                 creada por <%=t.user.name%>
             </li>
         </form>
         <%end%>
